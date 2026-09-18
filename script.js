@@ -13,4 +13,15 @@ document.querySelectorAll('.site-nav a').forEach((link) => {
   });
 });
 
+const revealItems = document.querySelectorAll('.reveal:not(.hero .reveal)');
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('is-visible');
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.12 });
+
+revealItems.forEach((item) => revealObserver.observe(item));
 document.querySelector('#year').textContent = new Date().getFullYear();
