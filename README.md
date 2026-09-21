@@ -1,20 +1,25 @@
 # aboutme-wd
 
-The personal website of Abner Flores.
+A multi-page personal website for Abner Flores.
 
-This is a dependency-free static site built with HTML, CSS, and JavaScript. It is designed to be easy to edit and publish from any static hosting provider.
+## File structure
 
-## Files
-
-- index.html — content, sections, links, and page structure
-- styles.css — visual system, responsive layout, and animation styles
-- script.js — mobile navigation, reveal animations, and the footer year
-- favicon.svg — the site icon
+- index.html — home page
+- media.html — media page
+- future.html — future page
+- web-development.html — selected topic page
+- digital-creativity.html — selected topic page
+- admin.html — browser-based admin dashboard
+- styles.css — shared website styles
+- script.js — shared client-side behavior
+- admin.js — admin dashboard behavior
+- server.js — dependency-free Node static server
+- assets/ — general site assets
+- images/ — image files
+- videos/ — video files
 
 ## Run locally
 
-Open index.html in a browser, or serve this folder with any static file server.
+Run node server.js, then open http://localhost:3000.
 
-## Customize
-
-Start with the copy in index.html, then update the colors and layout tokens at the top of styles.css. Replace the GitHub links when you add more projects.
+The admin dashboard currently saves edits to localStorage in the browser. The server includes a small health endpoint at /api/health and is ready to be extended with persistent storage.
