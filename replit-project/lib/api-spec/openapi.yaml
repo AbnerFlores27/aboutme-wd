@@ -1,0 +1,186 @@
+openapi: 3.1.0
+info:
+  # Do not change the title, if the title changes, the import paths will be broken
+  title: Api
+  version: 0.1.0
+  description: API specification
+servers:
+  - url: /api
+    description: Base API path
+tags:
+  - name: health
+    description: Health operations
+  - name: contact
+    description: Contact form submissions
+paths:
+  /healthz:
+    get:
+      operationId: healthCheck
+      tags: [health]
+      summary: Health check
+      description: Returns server health status
+      responses:
+        "200":
+          description: Healthy
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/HealthStatus"
+  /contact:
+    get:
+      operationId: listContactMessages
+      tags: [contact]
+      summary: List saved contact messages
+      description: Returns contact messages from App Storage for review in Admin.
+      responses:
+        "200":
+          description: Saved contact messages
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/ContactMessage"
+        "500":
+          description: Contact messages could not be loaded
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorEnvelope"
+    post:
+      operationId: submitContact
+      tags: [contact]
+      summary: Save a contact form submission
+      description: Stores a visitor message in App Storage for the student to review.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ContactMessageInput"
+      responses:
+        "201":
+          description: Contact message saved
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ContactMessage"
+        "400":
+          description: Invalid contact form data
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorEnvelope"
+        "500":
+          description: Contact message could not be saved
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorEnvelope"
+  /contact/{id}/replied:
+    patch:
+      operationId: markContactMessageReplied
+      tags: [contact]
+      summary: Mark a contact message as replied
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+            minLength: 1
+      responses:
+        "200":
+          description: Updated contact message
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ContactMessage"
+        "404":
+          description: Contact message not found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorEnvelope"
+        "500":
+          description: Contact message could not be updated
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorEnvelope"
+components:
+  schemas:
+    HealthStatus:
+      type: object
+      properties:
+        status:
+          type: string
+      required:
+        - status
+    ContactMessageInput:
+      type: object
+      properties:
+        firstName:
+          type: string
+          minLength: 1
+        lastName:
+          type: string
+          minLength: 1
+        email:
+          type: string
+          format: email
+        reason:
+          type: string
+          enum: [Comment, Question, Partnership, Opportunity, Other]
+        message:
+          type: string
+          minLength: 1
+      required:
+        - firstName
+        - lastName
+        - email
+        - reason
+        - message
+    ContactMessage:
+      type: object
+      properties:
+        id:
+          type: string
+        firstName:
+          type: string
+        lastName:
+          type: string
+        email:
+          type: string
+          format: email
+        reason:
+          type: string
+          enum: [Comment, Question, Partnership, Opportunity, Other]
+        message:
+          type: string
+        submittedAt:
+          type: string
+          format: date-time
+        replied:
+          type: boolean
+        repliedAt:
+          type: ["string", "null"]
+          format: date-time
+      required:
+        - id
+        - firstName
+        - lastName
+        - email
+        - reason
+        - message
+        - submittedAt
+        - replied
+        - repliedAt
+    ErrorEnvelope:
+      type: object
+      properties:
+        error:
+          type: string
+      required:
+        - error
+

@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "Abner Flores — Web, Sports & Creative Work"
+description = "A personal website for Abner Flores, a freshman from Grossmont High School learning web design, exploring sports and clubs, and building his story across six pages."
+version = "1.0.0"
+id = "artifacts/abner-flores-portfolio"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 23097
+
+[services.development]
+run = "pnpm --filter @workspace/abner-flores-portfolio run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/abner-flores-portfolio", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/abner-flores-portfolio/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "23097"
+BASE_PATH = "/"
