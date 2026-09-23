@@ -29,6 +29,6 @@ The admin dashboard currently saves edits to localStorage in the browser. The se
 The current Replit portfolio is stored in [`replit-project/`](./replit-project/).
 
 - [Browse the current portfolio files](./replit-project/)
-- [Open this repository in Replit](${openInReplitUrl})
+- [Open this repository in Replit](https://replit.com/?stack=Build&prompt=PIBwpgdgBALgFgSwM5QOIJgCQK4CMoBOYIA9khiQQJ5QLQBKxANhlAIYQAmh208YUAMbYCRCDCikCMAGYkWJSQRIArMIIkzlAW0LMMAWhDK1GgPRtpCGWw1ILuCGAIGZTSmCRHKs+QhIAdFAACkRIzgBuAvxQYAAeyDB0AOZQjCAsEsaq6hJIMATYGiJgAUA&referrer=github)
 
 The Replit link opens this GitHub project in Replit so it can be accessed and run there.
