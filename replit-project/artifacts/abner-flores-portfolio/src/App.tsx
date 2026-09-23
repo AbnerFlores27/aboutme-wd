@@ -55,6 +55,7 @@ const homeIntro = "I'm a freshman from Grossmont High School, learning about web
 const previousHomeIntro = 'I build thoughtful websites and digital experiences, with a focus on clear ideas, useful details, and work that feels personal.';
 const previousStudentIntro = "I'm a freshman from Grossmont High School, learning about web design. I look forward to playing baseball for Grossmont and doing other sports or clubs.";
 const contactReasons: ContactMessageInput['reason'][] = ['Comment', 'Question', 'Partnership', 'Opportunity', 'Other'];
+const githubProjectUrl = 'https://github.com/AbnerFlores27/aboutme-wd/tree/main/replit-project';
 
 const defaultProfile: Profile = {
   name: 'Abner Flores',
@@ -65,7 +66,7 @@ const defaultProfile: Profile = {
   email: 'hello@example.com',
   location: 'Add your city',
   photoUrl: '',
-  github: 'https://github.com/AbnerFlores27',
+  github: githubProjectUrl,
   linkedin: '',
   instagram: '',
 };
@@ -351,6 +352,7 @@ function Home() {
             <div className="hero-actions">
               <a className="button button-dark" href={`mailto:${profile.email}`}><Mail size={16} /> Contact me</a>
               <Link className="button button-light" href="/media">See my media <ExternalLink size={15} /></Link>
+              <a className="button button-light" href={githubProjectUrl} target="_blank" rel="noreferrer"><Github size={16} /> View project on GitHub <ExternalLink size={14} /></a>
             </div>
           </div>
           <div className="home-profile">
