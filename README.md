@@ -24,11 +24,8 @@ Run node server.js, then open http://localhost:3000.
 
 The admin dashboard currently saves edits to localStorage in the browser. The server includes a small health endpoint at /api/health and is ready to be extended with persistent storage.
 
-## Open the current Replit project
+## Open in Replit
 
-The current Replit portfolio is stored in [`replit-project/`](./replit-project/).
+[Import this GitHub repository into Replit](https://replit.com/github.com/AbnerFlores27/aboutme-wd)
 
-- [Browse the current portfolio files](./replit-project/)
-- [Open this repository in Replit](https://replit.com/?stack=Build&prompt=PIBwpgdgBALgFgSwM5QOIJgCQK4CMoBOYIA9khiQQJ5QLQBKxANhlAIYQAmh208YUAMbYCRCDCikCMAGYkWJSQRIArMIIkzlAW0LMMAWhDK1GgPRtpCGWw1ILuCGAIGZTSmCRHKs+QhIAdFAACkRIzgBuAvxQYAAeyDB0AOZQjCAsEsaq6hJIMATYGiJgAUA&referrer=github)
-
-The Replit link opens this GitHub project in Replit so it can be accessed and run there.
+The current Replit project files are in [`replit-project/`](./replit-project/). This link imports the GitHub repository into Replit; it does not open the original workspace or a published live website.
