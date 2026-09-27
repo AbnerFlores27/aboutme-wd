@@ -26,6 +26,8 @@ The admin dashboard currently saves edits to localStorage in the browser. The se
 
 ## Open in Replit
 
+[View the live Replit project](https://replit.com/@abnerflores27/aboutmewd)
+
 [Import this GitHub repository into Replit](https://replit.com/github.com/AbnerFlores27/aboutme-wd)
 
 The current Replit project files are in [`replit-project/`](./replit-project/). This link imports the GitHub repository into Replit; it does not open the original workspace or a published live website.
